@@ -1,45 +1,27 @@
+/*
+Copyright © 2025 NAME HERE <EMAIL ADDRESS>
+*/
 package cmd
 
 import (
-	"fmt"
-	"strings"
+	"os"
 
 	"github.com/spf13/cobra"
 )
 
-func main() {
-	var echoTimes int
+var rootCmd = &cobra.Command{
+	Use:   "Todolist 📓",
+	Short: "A cli Todolist for managing daily tasks.",
+}
 
-	var cmdPrint = &cobra.Command{
-		Use:  "Used to print string",
-		Args: cobra.MinimumNArgs(1),
-		Run: func(cmd *cobra.Command, args []string) {
-			fmt.Println("Print", strings.Join(args, " "))
-		},
+func Execute() {
+	err := rootCmd.Execute()
+	if err != nil {
+		os.Exit(1)
 	}
+}
 
-	var cmdEcho = &cobra.Command{
-		Use:  "Used to echo string",
-		Args: cobra.MinimumNArgs(1),
-		Run: func(cmd *cobra.Command, args []string) {
-			fmt.Println("Echo", strings.Join(args, " "))
-		},
-	}
+func init() {
 
-	var cmdTimes = &cobra.Command{
-		Use:  "Used to echoing number of times",
-		Args: cobra.MinimumNArgs(1),
-		Run: func(cmd *cobra.Command, args []string) {
-			for i := 0; i < echoTimes; i++ {
-				fmt.Println("Echoing ..", strings.Join(args, " "))
-			}
-		},
-	}
-
-	cmdTimes.Flags().IntVarP(&echoTimes, "times", "t", 1, "times to echo the input")
-
-	var rootCommand = &cobra.Command{Use: "app"}
-	rootCommand.AddCommand(cmdPrint, cmdEcho)
-	cmdEcho.AddCommand(cmdTimes)
-	rootCommand.Execute()
+	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }

@@ -4,7 +4,7 @@ Copyright © 2025 NAME HERE <EMAIL ADDRESS>
 */
 package main
 
-import "cli-tools/cli-tool/cmd"
+import "github.com/spf13/myapp/cmd"
 
 func main() {
 	cmd.Execute()
