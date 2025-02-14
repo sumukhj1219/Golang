@@ -1,0 +1,5 @@
+2024-01-31 12:00:01 INFO Server started
+2024-01-31 12:01:15 WARN High memory usage detected
+2024-01-31 12:02:30 ERROR Database connection failed
+2024-01-31 12:05:42 INFO User logged in
+2024-01-31 12:07:53 ERROR Disk space low

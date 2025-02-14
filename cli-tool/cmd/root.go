@@ -1,27 +1,21 @@
-/*
-Copyright © 2025 NAME HERE <EMAIL ADDRESS>
-*/
 package cmd
 
 import (
+	"fmt"
 	"os"
 
 	"github.com/spf13/cobra"
 )
 
 var rootCmd = &cobra.Command{
-	Use:   "Todolist 📓",
-	Short: "A cli Todolist for managing daily tasks.",
+	Use:   "Task manager",
+	Short: "A simple CLI task manager",
+	Long:  `A task manager CLI tool built using Cobra.`,
 }
 
 func Execute() {
-	err := rootCmd.Execute()
-	if err != nil {
+	if err := rootCmd.Execute(); err != nil {
+		fmt.Println("Error:", err)
 		os.Exit(1)
 	}
-}
-
-func init() {
-
-	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }

@@ -5,7 +5,6 @@ import (
 	"os"
 	"runtime"
 
-	// "github.com/shirou/gopsutil/host"
 	"github.com/shirou/gopsutil/v3/cpu"
 	"github.com/shirou/gopsutil/v3/mem"
 )
